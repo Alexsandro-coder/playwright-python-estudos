@@ -1,0 +1,9 @@
+from .cart_page import CartPage
+from .inventory_page import InventoryPage
+from .login_page import LoginPage
+
+__all__ = [
+    "CartPage",
+    "InventoryPage",
+    "LoginPage",
+]
