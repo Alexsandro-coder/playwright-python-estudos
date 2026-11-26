@@ -8,7 +8,6 @@ class LoginPage:
         self.campo_usuario = page.locator("[data-test='username']")
         self.campo_senha = page.locator("[data-test='password']")
         self.campo_login = page.locator("[data-test='login-button']")
-        self.alerta_erro = page.locator("[data-test='error']")
 
     def acessar(self):
         self.page.goto("https://www.saucedemo.com")

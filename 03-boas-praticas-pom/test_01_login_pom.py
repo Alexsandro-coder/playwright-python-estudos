@@ -1,5 +1,5 @@
 from playwright.sync_api import Page, expect
-from pages.login_page import LoginPage
+from pages import LoginPage, BasePage
 
 
 def test_login_com_sucesso(page: Page):
@@ -13,8 +13,9 @@ def test_login_com_sucesso(page: Page):
 
 def test_login_usuario_bloqueado(page: Page):
     login_page = LoginPage(page)
+    base_page = BasePage(page)
     login_page.acessar()
     login_page.fazer_login("locked_out_user", "secret_sauce")
 
-    expect(login_page.alerta_erro).to_be_visible()
-    expect(login_page.alerta_erro).to_have_text("Epic sadface: Sorry, this user has been locked out.")
+    expect(base_page.alerta_erro).to_be_visible()
+    expect(base_page.alerta_erro).to_have_text("Epic sadface: Sorry, this user has been locked out.")
